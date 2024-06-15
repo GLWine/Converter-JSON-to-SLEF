@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "object",
+          "properties": {
+            "appName": { "type": "string" },
+            "appVersion": { "type": "string" },
+            "appURL": { "type": "string", "format": "uri" },
+            "appCustomProperties": {
+              "type": "object",
+              "properties": {
+                "anything": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": ["appName", "appVersion", "appURL", "appCustomProperties"]
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "Ship": { "type": "string" },
+            "Modules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Slot": { "type": "string" },
+                  "Item": { "type": "string" },
+                  "Engineering": {
+                    "type": "object",
+                    "properties": {
+                      "BlueprintName": { "type": "string" },
+                      "Level": { "type": "integer" },
+                      "Quality": { "type": "number", "minimum": 0, "maximum": 1 },
+                      "ExperimentalEffect": { "type": "string" }
+                    },
+                    "required": ["BlueprintName", "Level", "Quality"],
+                    "additionalProperties": false
+                  }
+                },
+                "required": ["Slot", "Item"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["Ship", "Modules"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["header", "data"],
+      "additionalProperties": false
+    }
+  }
+  

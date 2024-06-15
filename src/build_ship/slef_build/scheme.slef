@@ -1,5 +1,6 @@
 [
     {
+        "$schema":  "file:///E:/Giampiero/Documents/GitHub/Converter-JSON-to-SLEF/src/build_ship/Slef_Scheme.json"
         "header": {
             "appName": "Inara",
             "appVersion": "1.0",
